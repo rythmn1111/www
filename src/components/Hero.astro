@@ -5,7 +5,6 @@ import Button from '../components/Button.astro'
 import { Image } from 'astro:assets'
 import HomePageVideo from '../assets/HomePageVideo.webm'
 import { ArrowRight } from 'lucide-astro'
-import { motion } from 'motion/react'
 import { getTitleAnimation } from '../animations'
 import Video from './Video.astro'
 import SocialMediaStrip from './SocialMediaStrip.astro'
@@ -29,30 +28,26 @@ function getHeroTitleAnimation() {
     <Title
       class="relative px-12 text-center !font-normal !leading-8 leading-[108px] md:!text-7xl lg:px-0 lg:!text-9xl"
     >
-      <motion.span client:load {...getHeroTitleAnimation()}>
+      <span>
         welcome
-      </motion.span>
-      <motion.span client:load {...getHeroTitleAnimation()}> to </motion.span>
+      </span>
+      <span> to </span>
       <br class="hidden md:block" />
-      <motion.span client:load {...getHeroTitleAnimation()}> the </motion.span>
-      <motion.span
-        client:load
-        {...getHeroTitleAnimation()}
-        className="italic text-coral"
-      >
+      <span> the </span>
+      <span class="italic text-coral">
         permaweb
-      </motion.span>
-      <motion.span client:load {...getHeroTitleAnimation()}>
+      </span>
+      <span>
         of things
-      </motion.span>
+      </span>
     </Title>
-    <motion.span client:load {...getHeroTitleAnimation()}>
+    <span>
       <Description class="px-12 text-center lg:px-0">
         connect any IoT device to AO's decentralized compute with zero config.
         <br class="hidden sm:inline" />
         compute, store, automate anything—forever.</Description
       >
-    </motion.span>
+    </span>
     <div class="mt-6 flex w-2/3 flex-col items-center gap-3 sm:gap-6 md:w-fit md:flex-col">
       <div class="relative w-full flex items-center justify-center">
         <div id="countdown-timer" class="flex flex-col items-center justify-center gap-1 rounded-xl bg-paper p-6 pt-8 text-lg font-bold text-coral shadow-md w-full" style="letter-spacing: 0.05em; min-width: 280px;">
@@ -65,27 +60,23 @@ function getHeroTitleAnimation() {
           </div>
         </div>
       </div>
-      <motion.span client:load {...getHeroTitleAnimation()}>
+      <span>
         <Button class="w-full min-w-[220px] px-10 py-4 mt-2" id="waitlist-btn" type="button" isPrimary>
           Join the waitlist
         </Button>
-      </motion.span>
+      </span>
     </div>
-    <motion.span
-      client:load
-      {...getHeroTitleAnimation()}
+    <span
       class="mx-auto translate-y-16 !transform"
     >
       <span class="block text-center text-lg font-medium opacity-70 mt-6">
         Introducing AO Buddy, just imagine the functionality and let the AO Buddy cook on AURA Create
       </span>
-    </motion.span>
+    </span>
   </div>
 </header>
-<motion.span
-  className="flex max-w-full px-8 lg:max-w-none lg:flex-none lg:px-0"
-  client:load
-  {...getHeroTitleAnimation()}
+<span
+  class="flex max-w-full px-8 lg:max-w-none lg:flex-none lg:px-0"
 >
   <Video
     src={HomePageVideo}
@@ -96,7 +87,7 @@ function getHeroTitleAnimation() {
     preload="none"
     class="mb-24 rounded-3xl shadow-md lg:mx-auto lg:w-3/4 dark:opacity-80"
   />
-</motion.span>
+</span>
 <dialog id="waitlist-dialog" class="rounded-xl p-0 shadow-lg w-full max-w-sm z-50" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: fixed;">
   <form method="dialog" class="flex flex-col gap-4 p-6">
     <h2 class="text-xl font-bold mb-2">Join the Waitlist</h2>

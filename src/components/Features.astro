@@ -1,6 +1,5 @@
 ---
 import Description from '../components/Description.astro'
-import { motion } from 'motion/react'
 import { getTitleAnimation } from '../animations'
 
 import WorkspacesVideo from '../assets/Workspaces.webm'
@@ -22,81 +21,71 @@ const {
   class="relative flex w-full flex-col px-4 text-start md:px-24 lg:mx-auto lg:w-3/4 lg:px-0 lg:py-36"
 >
   <Description class="mb-2 text-6xl font-bold">
-    <motion.span client:load {...getTitleAnimation(0.2)}>
+    <span>
       {title1}
-    </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.4)}>
+    </span>
+    <span>
       {title2}
-    </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.6)}>
+    </span>
+    <span>
       {title3}
-    </motion.span>
+    </span>
   </Description>
-  <motion.p client:load {...getTitleAnimation(0.6)} className="lg:w-1/2">
+  <p class="lg:w-1/2">
     With AURA Create, you can make dynamic workflow for any IoT device and connect them with AO processes with our custom pub/sub routing, sketch the workflow with all the code files saving in the background.
-  </motion.p>
+  </p>
   <div
     class="mb-12 mt-6 flex flex-col gap-6 lg:flex-row lg:justify-between lg:gap-2"
   >
     <div class="flex w-full flex-col lg:w-1/3">
       <!-- Mobile tabs -->
       <div class="flex gap-2 overflow-x-auto overflow-y-clip lg:hidden">
-        <motion.button
-          client:load
-          {...getTitleAnimation()}
+        <button
           class="feature-tab whitespace-nowrap"
           data-active="true"
         >
           AO Buddy
-        </motion.button>
-        <motion.button
-          client:load
-          {...getTitleAnimation(0.2)}
+        </button>
+        <button
           class="feature-tab whitespace-nowrap"
         >
           Compact Mode
-        </motion.button>
-        <motion.button
-          client:load
-          {...getTitleAnimation(0.4)}
+        </button>
+        <button
           class="feature-tab whitespace-nowrap"
         >
           Glance
-        </motion.button>
-        <motion.button
-          client:load
-          {...getTitleAnimation(0.6)}
+        </button>
+        <button
           class="feature-tab whitespace-nowrap"
         >
           Split View
-        </motion.button>
+        </button>
       </div>
 
       <!-- Desktop features list -->
       <div id="features-list" class="hidden lg:flex lg:flex-col lg:gap-3">
-        <motion.div
-          client:load
-          {...getTitleAnimation(0.8)}
-          className="feature"
+        <div
+          class="feature"
           data-active="true"
         >
           <Description class="text-2xl font-bold">AO Buddy</Description>
           <Description>
             your ai buddy that creates any IoT x AO flow, with flow it also generates code for the ao processes and your IoT devices, if you want to change the code simply use edit code button to change it with AO Buddy.
           </Description>
-        </motion.div>
-        <motion.div client:load {...getTitleAnimation(1)} className="feature">
+        </div>
+        <div class="feature">
           <Description class="text-2xl font-bold">One To Many Workflow</Description>
           <Description>
             create as many IoT or AO nodes as you want connect them with any other node all while everything is getting connected in the background!!
           </Description>
-        </motion.div>
-        <motion.div client:load {...getTitleAnimation(1.2)} className="feature">
+        </div>
+        <div class="feature">
           <Description class="text-2xl font-bold">All Local</Description>
           <Description>
             All the files and workspace are saved locally on your device in the selected folder, so you can use them in any IDE of your choice.
           </Description>
-        </motion.div>
+        </div>
         
       </div>
 

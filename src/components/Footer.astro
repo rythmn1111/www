@@ -1,0 +1,80 @@
+---
+import Title from '../components/Title.astro'
+import Description from '../components/Description.astro'
+import Button from '../components/Button.astro'
+import Circles from '../components/Circles.astro'
+import SocialMediaStrip from '../components/SocialMediaStrip.astro'
+import { ArrowRight } from 'lucide-astro'
+import Logo from '../components/Logo.astro'
+---
+
+<footer
+  id="footer"
+  class="relative flex w-full flex-col gap-16 overflow-hidden border-t border-dark bg-dark px-4 py-12 text-paper lg:p-24"
+  role="contentinfo"
+  aria-label="Site footer"
+>
+  <div class="flex w-full flex-col items-start justify-between gap-12">
+    <section
+      class="w-full text-center lg:w-1/2 lg:text-left"
+      aria-labelledby="footer-title"
+    >
+      <Title id="footer-title" class="!text-paper">AURA</Title>
+      <Description class="mx-auto max-w-xl lg:mx-0">
+        Put your robot on AO!!
+      </Description>
+    </section>
+    <section class="grid gap-10 place-self-center lg:place-self-start">
+      <Button
+        href="/download"
+        isPrimary
+        class="h-fit w-fit bg-paper !text-dark"
+        aria-label="Download Zen Browser"
+      >
+        Download
+        <ArrowRight class="size-4" aria-hidden="true" />
+      </Button>
+    </section>
+    <section
+      class="grid w-full max-w-5xl place-items-center gap-12 text-center sm:text-left"
+      aria-label="Footer navigation and links"
+    >
+      <div
+        class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:w-full"
+      >
+        <div
+          class="grid gap-8 sm:col-span-2 sm:grid-cols-2 md:col-span-1 md:grid-cols-1"
+        >
+          <section
+            class="flex flex-col items-center gap-2 sm:items-start"
+            aria-labelledby="follow-us-heading"
+          >
+            <h2 id="follow-us-heading" class="text-base !font-semibold">
+              Follow Us
+            </h2>
+            <SocialMediaStrip />
+          </section>
+        </div>
+      </div>
+    </section>
+    <section
+      class="grid w-full grid-cols-[1fr_auto] items-center gap-2"
+      aria-label="Copyright information"
+    >
+      <p class="flex justify-center gap-2 lg:justify-start">
+        made with <span aria-label="love">❤️</span> by the <a
+          href="https://x.com/soloknight05"
+          class="zen-link inline-block font-bold">hope</a
+        >
+      </p>
+    </section>
+    <section class="absolute bottom-0 right-0">
+      <Circles
+        white
+        multiplier={1}
+        class="mb-[-100px] ml-auto mr-[-80px] hidden lg:block"
+      />
+      
+    </section>
+  </div>
+</footer>

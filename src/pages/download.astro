@@ -1,0 +1,139 @@
+---
+import Description from '../components/Description.astro'
+import Title from '../components/Title.astro'
+import Layout from '../layouts/Layout.astro'
+import { releases } from '../components/download/release-data.astro'
+import PlatformDownload from '../components/download/PlatformDownload.astro'
+import DownloadScript from '../components/download/DownloadScript.astro'
+
+import { library, icon } from '@fortawesome/fontawesome-svg-core'
+import {
+  faWindows,
+  faLinux,
+  faApple,
+  faGithub,
+} from '@fortawesome/free-brands-svg-icons'
+import { Lock, ExternalLink } from 'lucide-astro'
+
+library.add(faWindows, faLinux, faApple, faGithub)
+const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
+const linuxIcon = icon({ prefix: 'fab', iconName: 'linux' })
+const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
+const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
+---
+
+<DownloadScript />
+
+<Layout title="Download AURA">
+  <main class="flex min-h-screen flex-col px-2 data-[os='windows']:bg-zen-blue">
+    <div class="container relative mx-auto max-w-5xl py-12">
+      <div class="mb-6 mt-12 flex flex-col gap-4">
+        <Description id="download-title" class="text-6xl font-bold"
+          >Download AURA</Description
+        >
+        <Description class="max-w-xl text-pretty">
+         
+        </Description>
+        <div
+          id="twilight-info"
+          class="hidden max-w-xl items-center justify-center gap-3 text-pretty rounded-xl border border-zen-blue/20 bg-zen-blue/5 p-4 text-left data-[twilight='true']:flex"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="mt-0.5 h-5 w-5 flex-shrink-0 text-zen-blue"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <Description>
+            <strong class="font-medium text-zen-blue">Twilight Mode:</strong> You're
+            currently in Twilight mode, this means you're downloading the latest
+            experimental features and updates.
+          </Description>
+        </div>
+      </div>
+
+      <!-- Platform selector -->
+      
+
+      <!-- Download Cards -->
+      <div
+        class="relative mb-16 overflow-hidden rounded-3xl bg-[rgba(255,255,255,0.4)] p-8 shadow-xl md:p-10 dark:bg-[rgba(0,0,0,0.3)]"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="flex flex-col items-center">
+            <h3 class="text-2xl font-bold mb-2">macOS</h3>
+            <p class="mb-4 text-center">We are launching our beta soon.</p>
+            <button class="bg-coral text-white font-bold rounded-xl px-6 py-3 mt-2" id="waitlist-btn-mac" type="button">Join the waitlist</button>
+          </div>
+          <div class="flex flex-col items-center">
+            <h3 class="text-2xl font-bold mb-2">Windows</h3>
+            <p class="mb-4 text-center">We are launching our beta soon.</p>
+            <button class="bg-coral text-white font-bold rounded-xl px-6 py-3 mt-2" id="waitlist-btn-windows" type="button">Join the waitlist</button>
+          </div>
+          <div class="flex flex-col items-center">
+            <h3 class="text-2xl font-bold mb-2">Linux</h3>
+            <p class="mb-4 text-center">We are launching our beta soon.</p>
+            <button class="bg-coral text-white font-bold rounded-xl px-6 py-3 mt-2" id="waitlist-btn-linux" type="button">Join the waitlist</button>
+          </div>
+        </div>
+      </div>
+      <dialog id="waitlist-dialog" class="rounded-xl p-0 shadow-lg w-full max-w-sm z-50" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: fixed;">
+        <form method="dialog" class="flex flex-col gap-4 p-6">
+          <h2 class="text-xl font-bold mb-2">Join the Waitlist</h2>
+          <input type="email" placeholder="Your email" required class="border rounded-lg px-3 py-2" />
+          <button type="submit" class="bg-coral text-white font-bold rounded-lg px-4 py-2 mt-2">Submit</button>
+        </form>
+      </dialog>
+      <script type="module">
+        const btns = [
+          document.getElementById('waitlist-btn-mac'),
+          document.getElementById('waitlist-btn-windows'),
+          document.getElementById('waitlist-btn-linux'),
+        ];
+        const dialog = document.getElementById('waitlist-dialog');
+        btns.forEach(btn => {
+          if (btn && dialog) {
+            btn.addEventListener('click', () => dialog.showModal());
+          }
+        });
+      </script>
+
+      <!-- Additional resources -->
+      
+
+      <!-- Security Notice -->
+     
+
+        
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  /* Download card icon */
+  .download-card__icon {
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-subtle p-2 text-coral data-[twilight='true']:text-zen-blue;
+  }
+
+  /* Make FontAwesome icons match size */
+  .download-card__icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+</style>
+
+<style is:global>
+  .os-icon svg {
+    height: 3rem;
+    width: 3rem;
+  }
+</style>

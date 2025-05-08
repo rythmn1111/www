@@ -7,9 +7,6 @@ import Layout from '../layouts/Layout.astro'
 
 import { releaseNotes } from '../release-notes'
 import whatsNewText from '../release-notes/whats-new.json'
-import Video from '../components/Video.astro'
-
-import whatsNewVideo from '../assets/whats-new.mp4'
 
 const latestVersion = releaseNotes[0]
 
@@ -64,14 +61,5 @@ if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVer
         <SocialMediaStrip gap="6" />
       </div>
     </div>
-    <Video
-      src={whatsNewVideo}
-      autoplay
-      loop
-      muted
-      playsinline
-      preload="none"
-      class="w-full rounded-3xl object-cover shadow-lg"
-    />
   </main>
 </Layout>
